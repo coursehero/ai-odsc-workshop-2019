@@ -11,7 +11,6 @@ cycler==0.10.0
 cymem==2.0.2
 decorator==4.4.0
 defusedxml==0.6.0
-en-core-web-md==2.2.0
 entrypoints==0.3
 gast==0.2.2
 google-pasta==0.1.7
