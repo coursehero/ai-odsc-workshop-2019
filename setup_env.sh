@@ -72,7 +72,7 @@ fi
 #####################################################
 
 ENV_NAME="course_hero_odsc"
-conda create -n $ENV_NAME python=3.7 pip
+conda create -n $ENV_NAME python=3.7 pip --yes
 source activate $ENV_NAME
 
 PIP="$CONDA_PREFIX/bin/pip"
