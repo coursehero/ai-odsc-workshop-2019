@@ -57,11 +57,11 @@ fi
 if [ "$MACHINE" = "Cygwin" ]; then
   curl $DL_LINK > conda_install_script.exe
   chmod 777 conda_install_script.exe
-  ./conda_install_script.exe
+  ./conda_install_script.exe -b
   rm conda_install_script.exe
 else  
   curl $DL_LINK > conda_install_script.sh
-  bash conda_install_script.sh -u
+  bash conda_install_script.sh -b
   rm conda_install_script.sh
 fi
 
