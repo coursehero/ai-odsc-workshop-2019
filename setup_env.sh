@@ -25,26 +25,36 @@ esac
 
 UNAME="$(uname -m)"
 XBIT="$(echo $UNAME | awk -F'_' '{print $2}')"
+
 if [ "$MACHINE" = "Mac" ]; then
   DL_LINK="https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh"
+
 elif [ "$MACHINE" = "Linux" ]; then
-  if [ "$XBIT" = "64"]; then
+
+  if [ "$XBIT" -eq 64 ]; then
     DL_LINK="https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh"
+
   else
     DL_LINK="https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86.sh"
+
   fi
-elif [ "$MACHINE" = "Cygwin"]; then
-  if [ "$XBIT" = "64"]; then
+
+elif [ "$MACHINE" = "Cygwin" ]; then
+
+  if [ "$XBIT" -eq 64 ]; then
     DL_LINK="https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe"
+
   else
     DL_LINK="https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86.exe"
+
   fi
+
 else
 	echo "Unsupported operating system: '$MACHINE'"
 	exit
 fi
 
-if [ "$MACHINE" = "Cygwin"]; then
+if [ "$MACHINE" = "Cygwin" ]; then
   curl $DL_LINK > conda_install_script.exe
   chmod 777 conda_install_script.exe
   ./conda_install_script.exe
