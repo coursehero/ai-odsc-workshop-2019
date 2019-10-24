@@ -1,71 +1,73 @@
 #!/bin/bash
 
 set -e
+if [[ ! $(which conda) ]]; then
+  ##################################
+  # Download and Install Miniconda #
+  ##################################
 
-##################################
-# Download and Install Miniconda #
-##################################
-
-#
-# OS check
-#
-unameOut="$(uname -s)"
-case "${unameOut}" in
-    Linux*)     MACHINE=Linux;;
-    Darwin*)    MACHINE=Mac;;
-    CYGWIN*)    MACHINE=Cygwin;;
-    MINGW*)     MACHINE=MinGw;;
-    *)          MACHINE="UNKNOWN:${unameOut}"
-esac
+  #
+  # OS check
+  #
+  unameOut="$(uname -s)"
+  case "${unameOut}" in
+      Linux*)     MACHINE=Linux;;
+      Darwin*)    MACHINE=Mac;;
+      CYGWIN*)    MACHINE=Cygwin;;
+      MINGW*)     MACHINE=MinGw;;
+      *)          MACHINE="UNKNOWN:${unameOut}"
+  esac
 
 
-#############################
-# Get the correct installer #
-#############################
+  #############################
+  # Get the correct installer #
+  #############################
 
-UNAME="$(uname -m)"
-XBIT="$(echo $UNAME | awk -F'_' '{print $2}')"
+  UNAME="$(uname -m)"
+  XBIT="$(echo $UNAME | awk -F'_' '{print $2}')"
 
-if [ "$MACHINE" = "Mac" ]; then
-  DL_LINK="https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh"
+  if [ "$MACHINE" = "Mac" ]; then
+    DL_LINK="https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh"
 
-elif [ "$MACHINE" = "Linux" ]; then
+  elif [ "$MACHINE" = "Linux" ]; then
 
-  if [ "$XBIT" -eq 64 ]; then
-    DL_LINK="https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh"
+    if [ "$XBIT" -eq 64 ]; then
+      DL_LINK="https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh"
+
+    else
+      DL_LINK="https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86.sh"
+
+    fi
+
+  elif [ "$MACHINE" = "Cygwin" ]; then
+
+    if [ "$XBIT" -eq 64 ]; then
+      DL_LINK="https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe"
+
+    else
+      DL_LINK="https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86.exe"
+
+    fi
 
   else
-    DL_LINK="https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86.sh"
-
+          echo "Unsupported operating system: '$MACHINE'"
+          exit
   fi
 
-elif [ "$MACHINE" = "Cygwin" ]; then
-
-  if [ "$XBIT" -eq 64 ]; then
-    DL_LINK="https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe"
-
+  if [ "$MACHINE" = "Cygwin" ]; then
+    curl $DL_LINK > conda_install_script.exe
+    chmod 777 conda_install_script.exe
+    ./conda_install_script.exe
+    rm conda_install_script.exe
   else
-    DL_LINK="https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86.exe"
-
+    curl $DL_LINK > conda_install_script.sh
+    bash conda_install_script.sh
+    rm conda_install_script.sh
   fi
 
-else
-	echo "Unsupported operating system: '$MACHINE'"
-	exit
+  source ~/.bash_profile
 fi
 
-if [ "$MACHINE" = "Cygwin" ]; then
-  curl $DL_LINK > conda_install_script.exe
-  chmod 777 conda_install_script.exe
-  ./conda_install_script.exe
-  rm conda_install_script.exe
-else  
-  curl $DL_LINK > conda_install_script.sh
-  bash conda_install_script.sh
-  rm conda_install_script.sh
-fi
-
-source ~/.bash_profile
 
 #####################################################
 # Create workshop-specific environment and install  #
@@ -82,9 +84,5 @@ PIP="$CONDA_PREFIX/bin/pip"
 #########################################
 # Download SpaCy model and WordNet data #
 #########################################
-
 python -m spacy download en_core_web_md
 python -c "import nltk;nltk.download('wordnet')"
-
-
-
