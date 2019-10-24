@@ -1,17 +1,5 @@
 #!/bin/bash
 
-#
-# Setup script to create environment for Course Hero ODSC workshop.
-# Steps:
-#         1. Check OS details
-#         2. Download the appropriate Miniconda installer
-#         3. Install Miniconda
-#         4. Create a new conda environment 'course_hero_odsc'
-#         5. pip install requirements
-#         6. Download required model/corpus
-#
-
-
 set -e
 
 ##################################
@@ -45,14 +33,27 @@ elif [ "$MACHINE" = "Linux" ]; then
   else
     DL_LINK="https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86.sh"
   fi
+elif [ "$MACHINE" = "Cygwin"]; then
+  if [ "$XBIT" = "64"]; then
+    DL_LINK="https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe"
+  else
+    DL_LINK="https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86.exe"
+  fi
 else
 	echo "Unsupported operating system: '$MACHINE'"
+	exit
 fi
 
-curl $DL_LINK > conda_install_script.sh
-bash conda_install_script.sh
-rm conda_install_script.sh
-
+if [ "$MACHINE" = "Cygwin"]; then
+  curl $DL_LINK > conda_install_script.exe
+  chmod 777 conda_install_script.exe
+  ./conda_install_script.exe
+  rm conda_install_script.exe
+else  
+  curl $DL_LINK > conda_install_script.sh
+  bash conda_install_script.sh
+  rm conda_install_script.sh
+fi
 
 #####################################################
 # Create workshop-specific environment and install  #
@@ -73,4 +74,5 @@ PIP="$CONDA_PREFIX/bin/pip"
 python -m spacy download en_core_web_md
 python -c "import nltk;nltk.download('wordnet')"
 
-echo "Successfully created your environment!"
+
+
