@@ -63,7 +63,7 @@ else
   curl $DL_LINK > conda_install_script.sh
   bash conda_install_script.sh -u
   rm conda_install_script.sh
-  source ~/.bashrc
+  source ~/.bash_profile
 fi
 
 #####################################################
