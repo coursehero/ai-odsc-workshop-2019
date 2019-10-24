@@ -63,8 +63,9 @@ else
   curl $DL_LINK > conda_install_script.sh
   bash conda_install_script.sh -u
   rm conda_install_script.sh
-  source ~/.bash_profile
 fi
+
+source ~/.bash_profile
 
 #####################################################
 # Create workshop-specific environment and install  #
