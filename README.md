@@ -12,7 +12,9 @@ The concepts will be taught using popular NLP and ML packages like **SpaCy**, **
 # Outcome
 
 
-# Pre-requisites 
+# Pre-requisites
+- If you have trouble setting up this environment, you can also use the following link to access the notebooks on MyBinder: 
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/coursehero/ai-odsc-workshop-2019/dev)
 - Python 3.x
 - We strongly recommend that you use a virtual environment to avoid dependency/version conflicts.
 
