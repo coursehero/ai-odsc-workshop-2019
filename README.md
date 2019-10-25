@@ -16,14 +16,14 @@ The concepts will be taught using popular NLP and ML packages like **SpaCy**, **
 
 ## Binder
 - If you have trouble setting up this environment, you can also use the following link to access the notebooks on MyBinder: 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/coursehero/ai-odsc-workshop-2019/dev)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/coursehero/ai-odsc-workshop-2019/master)
 
 ## Colab
-[Module 1](https://colab.research.google.com/github/coursehero/ai-odsc-workshop-2019/blob/dev/Module%201-Exploratory%20Data%20Analysis.ipynb)
+[Module 1](https://colab.research.google.com/github/coursehero/ai-odsc-workshop-2019/blob/master/Module%201-Exploratory%20Data%20Analysis.ipynb)
 
-[Module 2](https://colab.research.google.com/github/coursehero/ai-odsc-workshop-2019/blob/dev/Module%202-Feature%20Extraction%20and%20Classification.ipynb)
+[Module 2](https://colab.research.google.com/github/coursehero/ai-odsc-workshop-2019/blob/master/Module%202-Feature%20Extraction%20and%20Classification.ipynb)
 
-[Module 3](https://colab.research.google.com/github/coursehero/ai-odsc-workshop-2019/blob/dev/Module%203-Deep%20Learning%20Classification.ipynb)
+[Module 3](https://colab.research.google.com/github/coursehero/ai-odsc-workshop-2019/blob/master/Module%203-Deep%20Learning%20Classification.ipynb)
 
 
 ## Local dev setup
@@ -66,20 +66,20 @@ This workshop is divided into several modules that must be completed in sequence
 3. Environment set-up
 
 
-### Module 1 - [Exploratory (Text) Data Analysis](https://github.com/coursehero/ai-odsc-workshop-2019/blob/dev/Module%201-Exploratory%20Data%20Analysis.ipynb)
+### Module 1 - [Exploratory (Text) Data Analysis](https://github.com/coursehero/ai-odsc-workshop-2019/blob/master/Module%201-Exploratory%20Data%20Analysis.ipynb)
 
 1. Preprocessing text using spaCy
 2. Exploratory Data Analysis 
 3. Visualizing text data 
 
-### Module 2 - [Feature Extraction & Maximum Entropy Model](https://github.com/coursehero/ai-odsc-workshop-2019/blob/dev/Module%202-Feature%20Extraction%20and%20Classification.ipynb)
+### Module 2 - [Feature Extraction & Maximum Entropy Model](https://github.com/coursehero/ai-odsc-workshop-2019/blob/master/Module%202-Feature%20Extraction%20and%20Classification.ipynb)
 
 1. Feature Engineering on question data set
 2. Training a machine learning model using Scikit Learn
 3. Model evaluation
 
 
-### Module 3 - [Deep Representation Models](https://github.com/coursehero/ai-odsc-workshop-2019/blob/dev/Module%203-Deep%20Learning%20Classification.ipynb)
+### Module 3 - [Deep Representation Models](https://github.com/coursehero/ai-odsc-workshop-2019/blob/master/Module%203-Deep%20Learning%20Classification.ipynb)
 
 1. Learning question representations
 2. Model evaluation
