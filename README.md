@@ -16,7 +16,7 @@ The concepts will be taught using popular NLP and ML packages like **SpaCy**, **
 
 ## Binder
 - If you have trouble setting up this environment, you can also use the following link to access the notebooks on MyBinder: 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/coursehero/ai-odsc-workshop-2019/dev)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/coursehero/ai-odsc-workshop-2019/master)
 
 ## Colab
 [Module 1](https://colab.research.google.com/github/coursehero/ai-odsc-workshop-2019/blob/master/Module%201-Exploratory%20Data%20Analysis.ipynb)
