@@ -43,16 +43,10 @@ source activate $ENV_NAME
 
 PIP="$CONDA_PREFIX/bin/pip"
 "$PIP" install -r requirements.txt
-
-#########################################
-# Download SpaCy model and WordNet data #
-#########################################
-python -m spacy download en_core_web_md
-python -c "import nltk;nltk.download('wordnet')"
 ```
-- If not, run `pip install -r requirements.txt` followed by the following two python commands:
+- If not, just run `pip install -r requirements.txt`. 
 
-  - Download the SpaCy model: `python -m spacy download en_core_web_md`
+- Optionally, run the following command to install the WordNet data (If you don't run this, it will be downloaded in the notebook):
   - Download WordNet data from NLTK: `python -c "import nltk;nltk.download('wordnet')"`
 
 # Modules
