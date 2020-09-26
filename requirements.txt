@@ -76,7 +76,7 @@ spacy==2.2.1
 https://github.com/explosion/spacy-models/releases/download/en_core_web_md-2.2.0/en_core_web_md-2.2.0.tar.gz
 srsly==0.1.0
 tensorboard==1.15.0
-tensorflow==1.15.2
+tensorflow==1.15.4
 tensorflow-estimator==1.15.1
 tensorflow-hub==0.6.0
 termcolor==1.1.0
